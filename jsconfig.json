@@ -16,7 +16,8 @@
     },
     "include": [
         "index.js",
-        "src"
+        "src",
+        "types"
     ],
     "exclude":[
         "build",
