@@ -15,7 +15,7 @@
 .App .SideBar, .App .TopBar
 {
   background: rgb(0, 61, 85);
-  box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.5);
+  box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.2);
 }
 
 .App .SideBar {
@@ -28,11 +28,10 @@
 }
 
 .App .SideBar.Open {
-  box-shadow: 4px 0px 15px 3px rgba(0,0,0,0.5);
+  box-shadow: 4px 0px 15px 3px rgba(0,0,0,0.2);
 }
 
-.App .SideBar.Open .SideBarCont,
-.App .SideBar.Docked,
+.App .SideBar.Open .SideBarCont, .App .SideBar.Docked
 {
   width: 150px;
 }

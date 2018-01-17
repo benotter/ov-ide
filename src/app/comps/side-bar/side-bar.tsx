@@ -3,16 +3,25 @@ import * as PropTypes from 'prop-types';
 
 import './side-bar.css';
 
-export class SideBar extends React.Component<{docked?: boolean, open?: boolean}, {}>
+export class SideBar extends React.Component<{
+    docked?: boolean, 
+    open?: boolean
+    onIconClick?: ()=>void,
+    onPinClick?: ()=>void,
+}, {}>
 {
     static defaultProps = {
         docked: false,
         open: false,
+        onIconClick: ()=>{},
+        onPinClick: ()=>{},
     };
 
     static propTypes = {
         docked: PropTypes.bool.isRequired,
         open: PropTypes.bool.isRequired,
+        onIconClick: PropTypes.func,
+        onPinClick: PropTypes.func,
     };
 
     render () 

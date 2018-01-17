@@ -1,10 +1,9 @@
 import { UIActionTypes } from './ui-actions';
 
-export const UIInitial = {
-    
-};
-
-export function UIReducer(state = UIInitial, act)
+export function uiState(state = {
+    sideBarOpen: true,
+    sideBarDocked: true,
+}, act)
 {
     switch(act.type)
     {

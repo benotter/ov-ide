@@ -12,34 +12,45 @@ import {
 	EditorMain,
 } from './comps';
 
-import {
-	UIInitial,
-	OttProgInitial,
-} from './state/root-reducer';
-
-import { 
-	UIActions, 
-	OttProgActions,
-	OttProgActTypes
+import { UIActions, OttProgActions
 } from './state/root-actions';
 
+import * as reducers from './state/root-reducer';
+
 class App extends React.Component<{
-	uiActs: typeof UIActions, 
+	ui: any,
+
+	curSel: reducers.CurSelInitial,
+
+	available: {
+		modules: reducers.AvailModsInitial,
+		scopes: reducers.AvailScopesInitial,
+		vars: reducers.AvailVarsInitial,
+		exps: reducers.AvailExpsInitial,
+	},
+	lists: {
+		progs: reducers.ProgListInitial,
+		modules: reducers.ModuleListInital,
+		scopes: reducers.ScopeListInitial,
+		vars: reducers.VarListInitial,
+		exps: reducers.ExpListInitial,
+	},
+	uiActs: typeof UIActions,
 	progActs: typeof OttProgActions,
-	ui: typeof UIInitial,
-	program: typeof OttProgInitial,
-}, {}>
+}>
 {
 	render ()
 	{
-		let progActs = this.props.progActs;
-		let uiActs = this.props.uiActs;
-
 		let {
 			ui,
-			program,
-		} = this.props;
+			curSel,
+			available,
+			lists,
 
+			uiActs,
+			progActs
+		} = this.props;
+		
 		return (
 			<div className="App">
 				<SideBar>
@@ -57,24 +68,31 @@ class App extends React.Component<{
 			</div>
 		);
 	}
-
-	static propTypes = {
-		ui: PropTypes.object.isRequired,
-		uiActs: PropTypes.object.isRequired,
-
-		program: PropTypes.object.isRequired,
-		progActs: PropTypes.object.isRequired,
-	};
 }
 
 const stateToProps = state => ( {
-	ui: state.ui,
-	program: state.program,
+	ui: state.uiState,
+
+	curSel: state.curSel as reducers.CurSelInitial,
+
+	available: {
+		modules: state.availMods as reducers.AvailModsInitial,
+		scopes: state.availScopes as reducers.AvailScopesInitial,
+		vars: state.availVars as reducers.AvailVarsInitial,
+		exps: state.availExps as reducers.AvailExpsInitial,
+	},
+	lists: {
+		progs: state.progList as reducers.ProgListInitial,
+		modules: state.moduleList as reducers.ModuleListInital,
+		scopes: state.scopeList as reducers.ScopeListInitial,
+		vars: state.varList as reducers.VarListInitial,
+		exps: state.expList as reducers.ExpListInitial,
+	}
 } );
 
 const actionsToProps = disp => ( {
-	uiActs: bindActionCreators( UIActions, disp ),
-	progActs: bindActionCreators( OttProgActions, disp),
+	uiActs: bindActionCreators(UIActions, disp),
+	progActs: bindActionCreators(OttProgActions, disp)
 } );
 
 export default connect(

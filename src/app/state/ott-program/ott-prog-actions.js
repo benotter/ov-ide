@@ -1,35 +1,75 @@
 export var OttProgActTypes;
 (function (OttProgActTypes) {
-    OttProgActTypes["SET_CURRENT_PROG"] = "SET_CURRENT_PROG";
-    OttProgActTypes["SET_CURRENT_MODULE"] = "SET_CURRENT_MODULE";
-    OttProgActTypes["SET_CURRENT_SCOPE"] = "SET_CURRENT_SCOPE";
-    OttProgActTypes["SET_CURRENT_VAR"] = "SET_CURRENT_VAR";
-    OttProgActTypes["SET_CURRENT_EXP"] = "SET_CURRENT_EXP";
-    OttProgActTypes["ADD_AVAILABLE_MODULE"] = "ADD_AVAILABLE_MODULE";
-    OttProgActTypes["REM_AVAILABLE_MODULE"] = "REM_AVAILABLE_MODULE";
-    OttProgActTypes["CLEAR_AVAILABLE_MODULES"] = "CLEAR_AVAILABLE_MODULES";
-    OttProgActTypes["ADD_AVAILABLE_SCOPE"] = "ADD_AVAILABLE_SCOPE";
-    OttProgActTypes["REM_AVAILABLE_SCOPE"] = "REM_AVAILABLE_SCOPE";
-    OttProgActTypes["CLEAR_AVAILABLE_SCOPES"] = "CLEAR_AVAILABLE_SCOPES";
-    OttProgActTypes["ADD_AVAILABLE_VAR"] = "ADD_AVAILABLE_VAR";
-    OttProgActTypes["REM_AVAILABLE_VAR"] = "REM_AVAILABLE_VAR";
-    OttProgActTypes["CLEAR_AVAILABLE_VARS"] = "CLEAR_AVAILABLE_VARS";
-    OttProgActTypes["ADD_AVAILABLE_EXP"] = "ADD_AVAILABLE_EXP";
-    OttProgActTypes["REM_AVAILABLE_EXP"] = "REM_AVAILABLE_EXP";
-    OttProgActTypes["CLEAR_AVAILABLE_EXPS"] = "CLEAR_AVAILABLE_EXPS";
-    OttProgActTypes["ADD_PROG"] = "ADD_PROG";
-    OttProgActTypes["REM_PROG"] = "REM_PROG";
-    OttProgActTypes["ADD_MODULE"] = "ADD_MODULE";
-    OttProgActTypes["REM_MODULE"] = "REM_MODULE";
-    OttProgActTypes["ADD_SCOPE"] = "ADD_SCOPE";
-    OttProgActTypes["REM_SCOPE"] = "ADD_SCOPE";
-    OttProgActTypes["ADD_VAR"] = "ADD_VAR";
-    OttProgActTypes["REM_VAR"] = "REM_VAR";
-    OttProgActTypes["ADD_EXP"] = "ADD_EXP";
-    OttProgActTypes["REM_EXP"] = "REM_EXP";
+    OttProgActTypes[OttProgActTypes["ADD_PROG"] = 0] = "ADD_PROG";
+    OttProgActTypes[OttProgActTypes["REM_PROG"] = 1] = "REM_PROG";
+    OttProgActTypes[OttProgActTypes["ADD_MODULE"] = 2] = "ADD_MODULE";
+    OttProgActTypes[OttProgActTypes["REM_MODULE"] = 3] = "REM_MODULE";
+    OttProgActTypes[OttProgActTypes["ADD_SCOPE"] = 4] = "ADD_SCOPE";
+    OttProgActTypes[OttProgActTypes["REM_SCOPE"] = 5] = "REM_SCOPE";
+    OttProgActTypes[OttProgActTypes["ADD_VAR"] = 6] = "ADD_VAR";
+    OttProgActTypes[OttProgActTypes["REM_VAR"] = 7] = "REM_VAR";
+    OttProgActTypes[OttProgActTypes["ADD_EXP"] = 8] = "ADD_EXP";
+    OttProgActTypes[OttProgActTypes["REM_EXP"] = 9] = "REM_EXP";
+    OttProgActTypes[OttProgActTypes["SET_CURRENT_PROG"] = 10] = "SET_CURRENT_PROG";
+    OttProgActTypes[OttProgActTypes["SET_CURRENT_MODULE"] = 11] = "SET_CURRENT_MODULE";
+    OttProgActTypes[OttProgActTypes["SET_CURRENT_SCOPE"] = 12] = "SET_CURRENT_SCOPE";
+    OttProgActTypes[OttProgActTypes["SET_CURRENT_VAR"] = 13] = "SET_CURRENT_VAR";
+    OttProgActTypes[OttProgActTypes["SET_CURRENT_EXP"] = 14] = "SET_CURRENT_EXP";
+    OttProgActTypes[OttProgActTypes["ADD_AVAILABLE_MODULE"] = 15] = "ADD_AVAILABLE_MODULE";
+    OttProgActTypes[OttProgActTypes["REM_AVAILABLE_MODULE"] = 16] = "REM_AVAILABLE_MODULE";
+    OttProgActTypes[OttProgActTypes["CLEAR_AVAILABLE_MODULES"] = 17] = "CLEAR_AVAILABLE_MODULES";
+    OttProgActTypes[OttProgActTypes["ADD_AVAILABLE_SCOPE"] = 18] = "ADD_AVAILABLE_SCOPE";
+    OttProgActTypes[OttProgActTypes["REM_AVAILABLE_SCOPE"] = 19] = "REM_AVAILABLE_SCOPE";
+    OttProgActTypes[OttProgActTypes["CLEAR_AVAILABLE_SCOPES"] = 20] = "CLEAR_AVAILABLE_SCOPES";
+    OttProgActTypes[OttProgActTypes["ADD_AVAILABLE_VAR"] = 21] = "ADD_AVAILABLE_VAR";
+    OttProgActTypes[OttProgActTypes["REM_AVAILABLE_VAR"] = 22] = "REM_AVAILABLE_VAR";
+    OttProgActTypes[OttProgActTypes["CLEAR_AVAILABLE_VARS"] = 23] = "CLEAR_AVAILABLE_VARS";
+    OttProgActTypes[OttProgActTypes["ADD_AVAILABLE_EXP"] = 24] = "ADD_AVAILABLE_EXP";
+    OttProgActTypes[OttProgActTypes["REM_AVAILABLE_EXP"] = 25] = "REM_AVAILABLE_EXP";
+    OttProgActTypes[OttProgActTypes["CLEAR_AVAILABLE_EXPS"] = 26] = "CLEAR_AVAILABLE_EXPS";
 })(OttProgActTypes || (OttProgActTypes = {}));
 ;
 export let OttProgActions = {
+    addProgram: (programObj) => ({
+        type: OttProgActTypes.ADD_PROG,
+        programObj,
+    }),
+    remProgram: (programID) => ({
+        type: OttProgActTypes.REM_PROG,
+        programID,
+    }),
+    addModule: (moduleObj) => ({
+        type: OttProgActTypes.ADD_MODULE,
+        moduleObj,
+    }),
+    remModule: (moduleID) => ({
+        type: OttProgActTypes.REM_MODULE,
+        moduleID,
+    }),
+    addScope: (scopeObj) => ({
+        type: OttProgActTypes.ADD_SCOPE,
+        scopeObj,
+    }),
+    remScope: (scopeID) => ({
+        type: OttProgActTypes.REM_SCOPE,
+        scopeID,
+    }),
+    addVar: (varObj) => ({
+        type: OttProgActTypes.ADD_VAR,
+        varObj,
+    }),
+    remVar: (varID) => ({
+        type: OttProgActTypes.REM_VAR,
+        varID,
+    }),
+    addExp: (expObj) => ({
+        type: OttProgActTypes.ADD_EXP,
+        expObj,
+    }),
+    remExp: (expID) => ({
+        type: OttProgActTypes.REM_EXP,
+        expID,
+    }),
     setCurrentProg: (progID) => ({
         type: OttProgActTypes.SET_CURRENT_PROG,
         programID: progID,
@@ -103,45 +143,5 @@ export let OttProgActions = {
     }),
     clearAvailableExp: () => ({
         type: OttProgActTypes.CLEAR_AVAILABLE_EXPS,
-    }),
-    addProgram: (programObj) => ({
-        type: OttProgActTypes.ADD_PROG,
-        programObj,
-    }),
-    remProgram: (programID) => ({
-        type: OttProgActTypes.REM_PROG,
-        programID,
-    }),
-    addModule: (moduleObj) => ({
-        type: OttProgActTypes.ADD_MODULE,
-        moduleObj,
-    }),
-    remModule: (moduleID) => ({
-        type: OttProgActTypes.REM_MODULE,
-        moduleID,
-    }),
-    addScope: (scopeObj) => ({
-        type: OttProgActTypes.ADD_SCOPE,
-        scopeObj,
-    }),
-    remScope: (scopeID) => ({
-        type: OttProgActTypes.REM_SCOPE,
-        scopeID,
-    }),
-    addVar: (varObj) => ({
-        type: OttProgActTypes.ADD_VAR,
-        varObj,
-    }),
-    remVar: (varID) => ({
-        type: OttProgActTypes.REM_VAR,
-        varID,
-    }),
-    addExp: (expObj) => ({
-        type: OttProgActTypes.ADD_EXP,
-        expObj,
-    }),
-    remExp: (expID) => ({
-        type: OttProgActTypes.REM_EXP,
-        expID,
     }),
 };

@@ -1,5 +1,7 @@
-export const UIInitial = {};
-export function UIReducer(state = UIInitial, act) {
+export function uiState(state = {
+        sideBarOpen: true,
+        sideBarDocked: true,
+    }, act) {
     switch (act.type) {
         default:
             return state;

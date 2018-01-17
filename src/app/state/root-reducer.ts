@@ -1,12 +1,11 @@
 import { combineReducers } from 'redux';
 
-import { UIReducer} from './ui/ui-reducer';
-import { OttProgReducer } from './ott-program/ott-prog-reducer';
+import * as uiReduce from './ui/ui-reducer';
+import * as ottReduce from './ott-program/ott-prog-reducer';
 
 export default combineReducers({
-    ui: UIReducer,
-    
-    program: OttProgReducer,
+    ...uiReduce,
+    ...ottReduce,
 });
 
 export * from './ui/ui-reducer';

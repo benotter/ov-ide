@@ -1,5 +1,11 @@
+export var OttProgTypes;
+(function (OttProgTypes) {
+    OttProgTypes[OttProgTypes["Program"] = 0] = "Program";
+    OttProgTypes[OttProgTypes["Library"] = 1] = "Library";
+})(OttProgTypes || (OttProgTypes = {}));
+;
 export class OttProg {
-    constructor({ id = "", name = "", type = "", modulesOwned = [], exportModules = [], }) {
+    constructor({ id = "", name = "", type = OttProgTypes.Program, modulesOwned = [], exportModules = [], }) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -26,10 +32,15 @@ export class OttModule {
         this.exportModules = exportModules;
     }
 }
+export var OttScopeTypes;
+(function (OttScopeTypes) {
+    OttScopeTypes[OttScopeTypes["Module"] = 0] = "Module";
+})(OttScopeTypes || (OttScopeTypes = {}));
 export class OttScope {
-    constructor({ id = "", name = "", ownerModuleID = "", ownedVariables = [], exportedVariables = [], }) {
+    constructor({ id = "", name = "", type = OttScopeTypes.Module, ownerModuleID = "", ownedVariables = [], exportedVariables = [], }) {
         this.id = id;
         this.name = name;
+        this.type = type;
         this.ownerModuleID = ownerModuleID;
         this.ownedVariables = ownedVariables;
         this.exportedVariables = exportedVariables;
@@ -48,5 +59,28 @@ export class OttVar {
         this.name = name;
         this.ownerScopeID = ownerScopeID;
         this.ownerModuleID = ownerModuleID;
+    }
+}
+export var OttExpTypes;
+(function (OttExpTypes) {
+    OttExpTypes[OttExpTypes["Undefined"] = 0] = "Undefined";
+    OttExpTypes[OttExpTypes["Bool"] = 1] = "Bool";
+    OttExpTypes[OttExpTypes["Number"] = 2] = "Number";
+    OttExpTypes[OttExpTypes["String"] = 3] = "String";
+    OttExpTypes[OttExpTypes["Object"] = 4] = "Object";
+    OttExpTypes[OttExpTypes["Array"] = 5] = "Array";
+    OttExpTypes[OttExpTypes["Function"] = 6] = "Function";
+    OttExpTypes[OttExpTypes["Class"] = 7] = "Class";
+    OttExpTypes[OttExpTypes["Regex"] = 8] = "Regex";
+    OttExpTypes[OttExpTypes["Null"] = 9] = "Null";
+    OttExpTypes[OttExpTypes["Reference"] = 10] = "Reference";
+})(OttExpTypes || (OttExpTypes = {}));
+;
+export class OttExp {
+    constructor({ id = "", name = "", type = OttExpTypes.Undefined, rawValue = void 0, }) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.rawValue = rawValue;
     }
 }

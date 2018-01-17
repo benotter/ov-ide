@@ -1,15 +1,12 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as PropTypes from 'prop-types';
 import './App.css';
 import { SideBar, TopBar, EditorMain, } from './comps';
 import { UIActions, OttProgActions } from './state/root-actions';
 class App extends React.Component {
     render() {
-        let progActs = this.props.progActs;
-        let uiActs = this.props.uiActs;
-        let { ui, program, } = this.props;
+        let { ui, curSel, available, lists, uiActs, progActs } = this.props;
         return (<div className="App">
 				<SideBar>
 
@@ -26,18 +23,25 @@ class App extends React.Component {
 			</div>);
     }
 }
-App.propTypes = {
-    ui: PropTypes.object.isRequired,
-    uiActs: PropTypes.object.isRequired,
-    program: PropTypes.object.isRequired,
-    progActs: PropTypes.object.isRequired,
-};
 const stateToProps = state => ({
-    ui: state.ui,
-    program: state.program,
+    ui: state.uiState,
+    curSel: state.curSel,
+    available: {
+        modules: state.availMods,
+        scopes: state.availScopes,
+        vars: state.availVars,
+        exps: state.availExps,
+    },
+    lists: {
+        progs: state.progList,
+        modules: state.moduleList,
+        scopes: state.scopeList,
+        vars: state.varList,
+        exps: state.expList,
+    }
 });
 const actionsToProps = disp => ({
     uiActs: bindActionCreators(UIActions, disp),
-    progActs: bindActionCreators(OttProgActions, disp),
+    progActs: bindActionCreators(OttProgActions, disp)
 });
 export default connect(stateToProps, actionsToProps)(App);

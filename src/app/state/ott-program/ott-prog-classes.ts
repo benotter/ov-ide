@@ -6,20 +6,27 @@ export type OttVarID = string;
 export type OttExpID = string;
 
 
+export enum OttProgTypes {
+    Program,
+    Library,
+};
+
 export class OttProg 
 {
     public id: OttProgramID;
     public name: string;
-    public type: string;
+    public type: OttProgTypes;
+
     public modulesOwned: string[];
     public exportModules: string[];
 
     constructor({
         id = "",
         name = "",
-        type = "",
-        modulesOwned = [],
-        exportModules = [],
+        type = OttProgTypes.Program,
+
+        modulesOwned = <string[]>[],
+        exportModules = <string[]>[],
     })
     {
         this.id = id;
@@ -81,10 +88,17 @@ export class OttModule
     }
 }
 
+export enum OttScopeTypes 
+{
+    Module,
+}
+
 export class OttScope 
 {
     public id: OttScopeID;
     public name: string;
+    public type: OttScopeTypes;
+
     public ownerModuleID: string;
     public ownedVariables: string[];
     public exportedVariables: string[];
@@ -92,16 +106,16 @@ export class OttScope
     constructor({
         id = "",
         name = "",
-    
+        type = OttScopeTypes.Module,
+        
         ownerModuleID = "",
-    
         ownedVariables = [],
-
         exportedVariables = [],
     })
     {
         this.id = id;
         this.name = name;
+        this.type = type;
 
         this.ownerModuleID = ownerModuleID;
         this.ownedVariables = ownedVariables;
@@ -139,5 +153,43 @@ export class OttVar
         this.name = name;
         this.ownerScopeID = ownerScopeID;
         this.ownerModuleID = ownerModuleID;
+    }
+}
+
+export enum OttExpTypes 
+{
+    Undefined,
+    Bool,
+    Number,
+    String,
+    Object,
+    Array,
+    Function,
+    Class,
+    Regex,
+    Null,
+    Reference,
+};
+
+export class OttExp 
+{
+    public id: OttExpID;
+    public name: string;
+    public type: OttExpTypes;
+
+    public rawValue: any;
+    
+    constructor({
+        id = "",
+        name = "",
+        type = OttExpTypes.Undefined,
+        rawValue = void 0,
+    })
+    {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+
+        this.rawValue = rawValue;
     }
 }

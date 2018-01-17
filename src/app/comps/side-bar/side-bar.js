@@ -14,8 +14,12 @@ export class SideBar extends React.Component {
 SideBar.defaultProps = {
     docked: false,
     open: false,
+    onIconClick: () => { },
+    onPinClick: () => { },
 };
 SideBar.propTypes = {
     docked: PropTypes.bool.isRequired,
     open: PropTypes.bool.isRequired,
+    onIconClick: PropTypes.func,
+    onPinClick: PropTypes.func,
 };
