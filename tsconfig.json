@@ -1,21 +1,22 @@
 {
     "compilerOptions": {
-        "target": "es6",
-        "module": "commonjs",
+        "target": "es2017",
+        "module": "es6",
         "moduleResolution": "node",
-        "jsx": "react",
-        "checkJs": true,
+        "jsx": "react-native",
+        "allowJs": true,
     },
     "typeAcquisition": {
         "enable": true,
         "include": [
             "node",
             "react",
-            "react-dom"
+            "react-dom",
+            "reaxt-redux",
+            "redux"
         ]
     },
     "include": [
-        "index.js",
         "src",
         "types"
     ],

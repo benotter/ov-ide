@@ -1,3 +1,65 @@
+#root {
+  height: 100%;
+}
+
 .App {
+  width: 100%;
+  height: 100%;
+
   text-align: center;
+  display: flex;
+
+  flex-direction: row;
+}
+
+.App .SideBar, .App .TopBar
+{
+  background: rgb(0, 61, 85);
+  box-shadow: 3px 0px 10px 1px rgba(0,0,0,0.5);
+}
+
+.App .SideBar {
+  width: 50px;
+  height: 100%;
+  flex: 0 0 auto;
+  z-index: 3;
+
+  
+}
+
+.App .SideBar.Open {
+  box-shadow: 4px 0px 15px 3px rgba(0,0,0,0.5);
+}
+
+.App .SideBar.Open .SideBarCont,
+.App .SideBar.Docked,
+{
+  width: 150px;
+}
+
+.App .EditorCont {
+  width: auto;
+  height: 100%;
+  flex: 1 1 auto;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.App .TopBar {
+  width: 100%;
+  height: 150px;
+  flex: 0 0 auto;
+  z-index: 2;
+
+  
+}
+
+.App .EditorMain {
+  width: 100%;
+  height: auto;
+  flex: 1 1 auto;
+  z-index: 1;
+
+  
 }
