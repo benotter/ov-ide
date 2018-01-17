@@ -3,8 +3,7 @@
         "target": "es2017",
         "module": "es6",
         "moduleResolution": "node",
-        "jsx": "react-native",
-        "allowJs": true,
+        "jsx": "react-native"
     },
     "typeAcquisition": {
         "enable": true,

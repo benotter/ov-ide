@@ -6,7 +6,7 @@ import * as PropTypes from 'prop-types';
 
 import './App.css';
 
-import comps, {
+import {
 	SideBar,
 	TopBar,
 	EditorMain,

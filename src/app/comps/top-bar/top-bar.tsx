@@ -1,11 +1,13 @@
 import * as React from 'react';
 
-export class EditorMain extends React.Component 
+import './top-bar.css';
+
+export class TopBar extends React.Component 
 {
     render()
     {
         return (
-            <div className = "EditorMain">
+            <div className="TopBar">
                 { this.props.children }
             </div>
         );

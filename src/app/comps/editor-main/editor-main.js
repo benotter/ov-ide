@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 export class EditorMain extends React.Component {
     render() {
         return (<div className="EditorMain">
