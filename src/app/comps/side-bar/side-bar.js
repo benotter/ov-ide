@@ -1,7 +1,9 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import './side-bar.css';
-export class SideBar extends React.Component {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = require("react");
+const PropTypes = require("prop-types");
+require("./side-bar.css");
+class SideBar extends React.Component {
     render() {
         let { docked, open, } = this.props;
         return (<div className={`SideBar ${open ? 'Open' : 'Closed'} ${docked ? 'Docked' : ''}`}>
@@ -23,3 +25,4 @@ SideBar.propTypes = {
     onIconClick: PropTypes.func,
     onPinClick: PropTypes.func,
 };
+exports.SideBar = SideBar;

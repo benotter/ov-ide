@@ -1,24 +1,26 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import './App.css';
-import { SideBar, TopBar, EditorMain, } from './comps';
-import { UIActions, OttProgActions } from './state/root-actions';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const React = require("react");
+const react_redux_1 = require("react-redux");
+const redux_1 = require("redux");
+require("./App.css");
+const comps_1 = require("./comps");
+const root_actions_1 = require("./state/root-actions");
 class App extends React.Component {
     render() {
         let { ui, curSel, available, lists, uiActs, progActs } = this.props;
         return (<div className="App">
-				<SideBar>
-
-				</SideBar>
+				<comps_1.SideBar>
+					uiActs.;slakdfj;aslkfj();
+				</comps_1.SideBar>
 				<div className="EditorCont">
-					<TopBar>
+					<comps_1.TopBar>
 
-					</TopBar>
+					</comps_1.TopBar>
 
-					<EditorMain>
-						
-					</EditorMain>
+					<comps_1.EditorMain>
+
+					</comps_1.EditorMain>
 				</div>
 			</div>);
     }
@@ -41,7 +43,7 @@ const stateToProps = state => ({
     }
 });
 const actionsToProps = disp => ({
-    uiActs: bindActionCreators(UIActions, disp),
-    progActs: bindActionCreators(OttProgActions, disp)
+    uiActs: redux_1.bindActionCreators(root_actions_1.UIActions, disp),
+    progActs: redux_1.bindActionCreators(root_actions_1.OttProgActions, disp)
 });
-export default connect(stateToProps, actionsToProps)(App);
+exports.default = react_redux_1.connect(stateToProps, actionsToProps)(App);

@@ -1,8 +1,9 @@
 {
     "compilerOptions": {
-        "target": "es2015",
-        "module": "commonjs",
+        "target": "es2017",
+        "module": "es6",
         "moduleResolution": "node",
+        "jsx": "react-native",
         "sourceMap": true
     },
     "typeAcquisition": {
@@ -15,10 +16,13 @@
             "redux"
         ]
     },
-    "files": [
-        "main.ts"
-    ],
     "include": [
-        "main-lib"
+        "./"
+    ],
+    "exclude":[
+        "build",
+        "public",
+        "node_modules",
+        "build-scripts",
     ]
 }

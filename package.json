@@ -1,7 +1,7 @@
 {
   "name": "@otter-co/ov-ide",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "main.js",
   "homepage": ".",
   "private": true,
   "scripts": {
@@ -29,6 +29,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "remote-redux-devtools": "^0.5.0"
   }
 }

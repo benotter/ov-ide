@@ -1,27 +1,57 @@
 import * as React from 'react';
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as PropTypes from 'prop-types';
 
 import './App.css';
 
-import {
+import
+{
 	SideBar,
 	TopBar,
 	EditorMain,
 } from './comps';
 
-import { UIActions, OttProgActions
+import
+{
+	UIActions, OttProgActions
 } from './state/root-actions';
 
 import * as reducers from './state/root-reducer';
 
-class App extends React.Component<{
-	ui: any,
+class App extends React.Component<AppActionProps & AppStateProps>
+{
+	render ()
+	{
+		let {
+			ui, curSel, available, lists,
+			uiActs, progActs
+		} = this.props;
 
+		return (
+			<div className="App">
+				<SideBar>
+					uiActs.;slakdfj;aslkfj();
+				</SideBar>
+				<div className="EditorCont">
+					<TopBar>
+
+					</TopBar>
+
+					<EditorMain>
+
+					</EditorMain>
+				</div>
+			</div>
+		);
+	}
+}
+
+
+interface AppStateProps 
+{
+	ui: reducers.UiInitialState,
 	curSel: reducers.CurSelInitial,
-
 	available: {
 		modules: reducers.AvailModsInitial,
 		scopes: reducers.AvailScopesInitial,
@@ -35,46 +65,11 @@ class App extends React.Component<{
 		vars: reducers.VarListInitial,
 		exps: reducers.ExpListInitial,
 	},
-	uiActs: typeof UIActions,
-	progActs: typeof OttProgActions,
-}>
-{
-	render ()
-	{
-		let {
-			ui,
-			curSel,
-			available,
-			lists,
-
-			uiActs,
-			progActs
-		} = this.props;
-		
-		return (
-			<div className="App">
-				<SideBar>
-
-				</SideBar>
-				<div className="EditorCont">
-					<TopBar>
-
-					</TopBar>
-
-					<EditorMain>
-						
-					</EditorMain>
-				</div>
-			</div>
-		);
-	}
 }
 
-const stateToProps = state => ( {
+const stateToProps: ( state ) => AppStateProps = state => ( {
 	ui: state.uiState,
-
 	curSel: state.curSel as reducers.CurSelInitial,
-
 	available: {
 		modules: state.availMods as reducers.AvailModsInitial,
 		scopes: state.availScopes as reducers.AvailScopesInitial,
@@ -90,9 +85,15 @@ const stateToProps = state => ( {
 	}
 } );
 
-const actionsToProps = disp => ( {
-	uiActs: bindActionCreators(UIActions, disp),
-	progActs: bindActionCreators(OttProgActions, disp)
+interface AppActionProps 
+{
+	uiActs: typeof UIActions,
+	progActs: typeof OttProgActions,
+}
+
+const actionsToProps: ( disp ) => AppActionProps = disp => ( {
+	uiActs: bindActionCreators( UIActions, disp ),
+	progActs: bindActionCreators( OttProgActions, disp )
 } );
 
 export default connect(

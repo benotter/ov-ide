@@ -1,4 +1,6 @@
-export function uiState(state = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+function uiState(state = {
         sideBarOpen: true,
         sideBarDocked: true,
     }, act) {
@@ -7,3 +9,4 @@ export function uiState(state = {
             return state;
     }
 }
+exports.uiState = uiState;

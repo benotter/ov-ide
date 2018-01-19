@@ -1,4 +1,6 @@
-export var OttProgActTypes;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var OttProgActTypes;
 (function (OttProgActTypes) {
     OttProgActTypes[OttProgActTypes["ADD_PROG"] = 0] = "ADD_PROG";
     OttProgActTypes[OttProgActTypes["REM_PROG"] = 1] = "REM_PROG";
@@ -27,9 +29,9 @@ export var OttProgActTypes;
     OttProgActTypes[OttProgActTypes["ADD_AVAILABLE_EXP"] = 24] = "ADD_AVAILABLE_EXP";
     OttProgActTypes[OttProgActTypes["REM_AVAILABLE_EXP"] = 25] = "REM_AVAILABLE_EXP";
     OttProgActTypes[OttProgActTypes["CLEAR_AVAILABLE_EXPS"] = 26] = "CLEAR_AVAILABLE_EXPS";
-})(OttProgActTypes || (OttProgActTypes = {}));
+})(OttProgActTypes = exports.OttProgActTypes || (exports.OttProgActTypes = {}));
 ;
-export let OttProgActions = {
+exports.OttProgActions = {
     addProgram: (programObj) => ({
         type: OttProgActTypes.ADD_PROG,
         programObj,

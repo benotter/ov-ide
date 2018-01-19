@@ -1,6 +1,12 @@
 import { UIActionTypes } from './ui-actions';
 
-export function uiState(state = {
+export interface UiInitialState 
+{
+    sideBarOpen: boolean;
+    sideBarDocked: boolean;
+}
+
+export function uiState(state: UiInitialState = {
     sideBarOpen: true,
     sideBarDocked: true,
 }, act)

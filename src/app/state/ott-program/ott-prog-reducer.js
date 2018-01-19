@@ -1,6 +1,8 @@
-import { OttProgActTypes as pActT, } from './ott-prog-actions';
-import { OttProg, OttModule, OttScope, OttVar, OttExp, } from './ott-prog-classes';
-export function curSel(state = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const ott_prog_actions_1 = require("./ott-prog-actions");
+const ott_prog_classes_1 = require("./ott-prog-classes");
+function curSel(state = {
         currentProgID: null,
         currentModuleID: null,
         currentScopeID: null,
@@ -8,29 +10,29 @@ export function curSel(state = {
         currentExpID: null,
     }, act) {
     switch (act.type) {
-        case pActT.SET_CURRENT_PROG:
+        case ott_prog_actions_1.OttProgActTypes.SET_CURRENT_PROG:
             return Object.assign({}, state, {
                 currentProgID: act.programID,
             });
-        case pActT.SET_CURRENT_MODULE:
+        case ott_prog_actions_1.OttProgActTypes.SET_CURRENT_MODULE:
             return Object.assign({}, state, {
                 currentProgID: act.programID,
                 currentModuleID: act.moduleID,
             });
-        case pActT.SET_CURRENT_SCOPE:
+        case ott_prog_actions_1.OttProgActTypes.SET_CURRENT_SCOPE:
             return Object.assign({}, state, {
                 currentProgID: act.programID,
                 currentModuleID: act.moduleID,
                 currentScopeID: act.scopeID,
             });
-        case pActT.SET_CURRENT_VAR:
+        case ott_prog_actions_1.OttProgActTypes.SET_CURRENT_VAR:
             return Object.assign({}, state, {
                 currentProgID: act.programID,
                 currentModuleID: act.moduleID,
                 currentScopeID: act.scopeID,
                 currentVarID: act.varID,
             });
-        case pActT.SET_CURRENT_EXP:
+        case ott_prog_actions_1.OttProgActTypes.SET_CURRENT_EXP:
             return Object.assign({}, state, {
                 currentProgID: act.programID,
                 currentModuleID: act.moduleID,
@@ -42,102 +44,112 @@ export function curSel(state = {
             return state;
     }
 }
+exports.curSel = curSel;
 ;
-export function availMods(state = [], act) {
+function availMods(state = [], act) {
     switch (act.type) {
-        case pActT.ADD_AVAILABLE_MODULE:
+        case ott_prog_actions_1.OttProgActTypes.ADD_AVAILABLE_MODULE:
             return state.splice(state.length, 0, act.moduleID);
-        case pActT.REM_AVAILABLE_MODULE:
+        case ott_prog_actions_1.OttProgActTypes.REM_AVAILABLE_MODULE:
             return state.filter(id => id !== act.moduleID);
         default:
             return state;
     }
 }
+exports.availMods = availMods;
 ;
-export function availScopes(state = [], act) {
+function availScopes(state = [], act) {
     switch (act.type) {
-        case pActT.ADD_AVAILABLE_SCOPE:
+        case ott_prog_actions_1.OttProgActTypes.ADD_AVAILABLE_SCOPE:
             return state.splice(state.length - 1, 0, act.scopeID);
-        case pActT.REM_AVAILABLE_SCOPE:
+        case ott_prog_actions_1.OttProgActTypes.REM_AVAILABLE_SCOPE:
             return state.filter(id => id !== act.scopeID);
         default:
             return state;
     }
 }
+exports.availScopes = availScopes;
 ;
-export function availVars(state = [], act) {
+function availVars(state = [], act) {
     switch (act.type) {
-        case pActT.ADD_AVAILABLE_VAR:
+        case ott_prog_actions_1.OttProgActTypes.ADD_AVAILABLE_VAR:
             return state.splice(state.length - 1, 0, act.varID);
-        case pActT.REM_AVAILABLE_VAR:
+        case ott_prog_actions_1.OttProgActTypes.REM_AVAILABLE_VAR:
             return state.filter(id => id !== act.varID);
         default:
             return state;
     }
 }
+exports.availVars = availVars;
 ;
-export function availExps(state = [], act) {
+function availExps(state = [], act) {
     switch (act.type) {
-        case pActT.ADD_AVAILABLE_EXP:
+        case ott_prog_actions_1.OttProgActTypes.ADD_AVAILABLE_EXP:
             return state.splice(state.length - 1, 0, act.expID);
-        case pActT.REM_AVAILABLE_EXP:
+        case ott_prog_actions_1.OttProgActTypes.REM_AVAILABLE_EXP:
             return state.filter(id => id !== act.expID);
         default:
             return state;
     }
 }
+exports.availExps = availExps;
 ;
-export function progList(state = [], act) {
+function progList(state = [], act) {
     switch (act.type) {
-        case pActT.ADD_PROG:
-            return state.splice(state.length - 1, 0, new OttProg(act.programObj));
-        case pActT.REM_PROG:
+        case ott_prog_actions_1.OttProgActTypes.ADD_PROG:
+            return state.splice(state.length - 1, 0, new ott_prog_classes_1.OttProg(act.programObj));
+        case ott_prog_actions_1.OttProgActTypes.REM_PROG:
             return state.filter(v => v.id !== act.programID);
         default:
             return state;
     }
 }
+exports.progList = progList;
 ;
-export function moduleList(state = [], act) {
+function moduleList(state = [], act) {
     switch (act.type) {
-        case pActT.ADD_MODULE:
-            return state.splice(state.length - 1, 0, new OttModule(act.moduleObj));
-        case pActT.REM_MODULE:
+        case ott_prog_actions_1.OttProgActTypes.ADD_MODULE:
+            return state.splice(state.length - 1, 0, new ott_prog_classes_1.OttModule(act.moduleObj));
+        case ott_prog_actions_1.OttProgActTypes.REM_MODULE:
             return state.filter(v => v.id !== act.moduleID);
         default:
             return state;
     }
 }
+exports.moduleList = moduleList;
 ;
-export function scopeList(state = [], act) {
+function scopeList(state = [], act) {
     switch (act.type) {
-        case pActT.ADD_SCOPE:
-            return state.splice(state.length - 1, 0, new OttScope(act.scopeObj));
-        case pActT.REM_SCOPE:
+        case ott_prog_actions_1.OttProgActTypes.ADD_SCOPE:
+            return state.splice(state.length - 1, 0, new ott_prog_classes_1.OttScope(act.scopeObj));
+        case ott_prog_actions_1.OttProgActTypes.REM_SCOPE:
             return state.filter(v => v.id !== act.scopeID);
         default:
             return state;
     }
 }
+exports.scopeList = scopeList;
 ;
-export function varList(state = [], act) {
+function varList(state = [], act) {
     switch (act.type) {
-        case pActT.ADD_VAR:
-            return state.splice(state.length - 1, 0, new OttVar(act.varObj));
-        case pActT.REM_VAR:
+        case ott_prog_actions_1.OttProgActTypes.ADD_VAR:
+            return state.splice(state.length - 1, 0, new ott_prog_classes_1.OttVar(act.varObj));
+        case ott_prog_actions_1.OttProgActTypes.REM_VAR:
             return state.filter(v => v.id !== act.varID);
         default:
             return state;
     }
 }
+exports.varList = varList;
 ;
-export function expList(state = [], act) {
+function expList(state = [], act) {
     switch (act.type) {
-        case pActT.ADD_EXP:
-            return state.splice(state.length - 1, 0, new OttExp(act.expObj));
-        case pActT.REM_EXP:
+        case ott_prog_actions_1.OttProgActTypes.ADD_EXP:
+            return state.splice(state.length - 1, 0, new ott_prog_classes_1.OttExp(act.expObj));
+        case ott_prog_actions_1.OttProgActTypes.REM_EXP:
             return state.filter(v => v.id !== act.expID);
         default:
             return state;
     }
 }
+exports.expList = expList;
